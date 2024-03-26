@@ -1,0 +1,109 @@
+/* styles.css */
+
+/* Reset default margin and padding for the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* styles.css */
+
+/* styles.css */
+
+/* Banner */
+.banner {
+    background-color: #ffb4b4; /* Light pink */
+    padding: 20px; /* Decrease padding to make the banner smaller */
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Align items to the left and right edges */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Make the banner fill the entire width of its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+/* Logo */
+.banner img {
+    height: 60px; /* Increase the height of the logo */
+    margin-right: 20px; /* Add margin to separate the logo from the menu */
+}
+
+/* Title image */
+.login-container img {
+    width: 400px; /* Increase the width of the title image */
+    margin-top: -30px; /* Move the image upwards */
+}
+
+/* Login container */
+.login-container {
+    text-align: center; /* Center the content horizontally */
+    margin-top: 70px; /* Add more space from the top */
+}
+
+/* Login form */
+.login-container form {
+    margin-top: 30px; /* Add more margin to the top of the form */
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    margin-bottom: 15px; /* Add more space between the input fields and the submit button */
+    padding: 12px; /* Decrease padding to the input fields */
+    border: 2px solid #ccc; /* Add a border to the input fields */
+    border-radius: 5px; /* Add rounded corners to the input fields */
+    font-size: 16px; /* Keep font size */
+    outline: none; /* Remove outline */
+}
+
+.login-container input[type="submit"] {
+    margin-bottom: 15px; /* Add more space between the input fields and the submit button */
+    padding: 15px 20px; /* Keep padding for the login button */
+    border: 2px solid #ccc; /* Add a border to the login button */
+    border-radius: 5px; /* Add rounded corners to the login button */
+    font-size: 16px; /* Keep font size */
+    font-family: 'Love Ya Like A Sister', sans-serif; /* Change font to Love Ya Like A Sister */
+    outline: none; /* Remove outline */
+    background-color: transparent; /* Remove background color */
+    color: #d6418c; /* Text color for the submit button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.login-container input[type="submit"]:hover {
+    color: #b72b6a; /* Change text color on hover */
+}
+
+.register-button {
+    display: inline-block;
+    font-family: 'Love Ya Like A Sister', sans-serif; /* Change font to Love Ya Like A Sister */
+    font-size: 16px; /* Adjust font size */
+    color: #b72b6a; /* Text color for the register button */
+    text-decoration: none; /* Remove default underline */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.register-button:hover {
+    color: #b72b6a; /* Change text color on hover */
+}
+
+/* Menu */
+.menu {
+    margin-left: auto; /* Push menu items to the right */
+}
+
+.menu a {
+    text-decoration: none;
+    color: white; /* Text color */
+    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    font-weight: bold;
+    font-size: 20px; /* Decrease font size */
+    padding: 8px 15px; /* Decrease padding to make the buttons smaller */
+    border-radius: 20px; /* Rounded corners */
+    background-color: transparent; /* Remove background color */
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+/* Hover effect */
+.menu a:hover {
+    background-color: #d6418c; /* Change text color to yellow on hover */
+}
