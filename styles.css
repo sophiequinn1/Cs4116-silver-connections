@@ -76,7 +76,7 @@ html, body {
     display: inline-block;
     font-family: 'Love Ya Like A Sister', sans-serif; /* Change font to Love Ya Like A Sister */
     font-size: 16px; /* Adjust font size */
-    color: #b72b6a; /* Text color for the register button */
+    color: black; /* Text color for the register button */
     text-decoration: none; /* Remove default underline */
     cursor: pointer; /* Change cursor to pointer on hover */
     transition: color 0.3s; /* Add transition for smooth color change */

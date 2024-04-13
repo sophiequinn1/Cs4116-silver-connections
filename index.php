@@ -18,7 +18,7 @@
 <body>
 
 <div class="banner">
-    <img src="logo.png" alt="Silver Connections Logo"> <!-- Logo image -->
+    <img src="logo.PNG" alt="Silver Connections Logo"> <!-- Logo image -->
     <div class="menu">
         <a href="#">HOME</a>
         <a href="#">ABOUT US</a>
@@ -29,15 +29,19 @@
 </div>
 
 <div class="login-container">
-    <img src="title.png" alt="Silver Connections Title">
-    <form action="#" method="post">
-        <input type="text" name="username" placeholder="Username...">
+    <img src="title.PNG" alt="Silver Connections Title">
+    <form action="login.php" method="post">
+        <label>
+            <input type="text" name="username" placeholder="Username...">
+        </label>
         <br>
-        <input type="password" name="password" placeholder="Password...">
+        <label>
+            <input type="password" name="password" placeholder="Password...">
+        </label>
         <br>
         <input type="submit" value="Login">
     </form>
-    <a href="#" class="register-button">Register</a>
+    <a href="register_page.php" class="register-button">Register</a>
 </div>
 
 </body>
