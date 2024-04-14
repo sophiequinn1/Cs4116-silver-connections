@@ -1,63 +1,97 @@
+/* Reset default margin and padding for the entire page */
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif; /* Change font to Roboto */
-    background-color: #f0f0f0;
+    background-color: #b8b8b8;
 }
 
-/* Center the registration form */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Register Container */
+.register-container {
+    text-align: center; /* Center the content horizontally */
+    margin-top: 70px; /* Add space from the top */
+    font-family: 'Love Ya Like A Sister', sans-serif; /* Set font family */
 }
 
-/* Styling for the registration form */
-.form-container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+/* Form */
+.register-container form {
+    margin-top: 30px; /* Add space from the top */
+    max-width: 400px; /* Set maximum width for the form */
+    margin-left: auto; /* Center the form */
+    margin-right: auto; /* Center the form */
 }
 
-.form-container h2 {
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+.register-container form label {
+    display: block; /* Make labels block-level elements */
+    margin-bottom: 15px; /* Add space between label and input */
+    font-size: 18px; /* Set font size for labels */
+    color: #333; /* Set text color */
 }
 
-.form-container label {
-    display: block;
-    margin-bottom: 10px;
-    color: #555;
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="email"],
+.register-container input[type="date"] {
+    width: 100%; /* Make input fields fill the container width */
+    padding: 12px; /* Set padding */
+    margin-bottom: 20px; /* Add space between input fields */
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 16px; /* Set font size */
+    outline: none; /* Remove outline */
 }
 
-.form-container input[type="text"],
-.form-container input[type="password"],
-.form-container input[type="email"],
-.form-container input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
+/* Register Button */
+.register-container input[type="submit"] {
+    padding: 15px 20px; /* Set padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 16px; /* Set font size */
+    font-family: 'Love Ya Like A Sister', sans-serif; /* Set font family */
+    background-color: #d6418c; /* Set background color */
+    color: #fff; /* Set text color */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Add transition for smooth color change */
 }
 
-.form-container input[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #00ff03;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.register-container input[type="submit"]:hover {
+    background-color: #b72b6a; /* Change background color on hover */
 }
 
-.form-container input[type="submit"]:hover {
-    background-color: #0056b3;
+/* Banner */
+.banner {
+    background-color: #ffb4b4; /* Light pink */
+    padding: 20px; /* Decrease padding to make the banner smaller */
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Align items to the left and right edges */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Make the banner fill the entire width of its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+/* Logo */
+.banner img {
+    height: 60px; /* Increase the height of the logo */
+    margin-right: 20px; /* Add margin to separate the logo from the menu */
+}
+
+/* Menu */
+.menu {
+    margin-left: auto; /* Push menu items to the right */
+}
+
+.menu a {
+    text-decoration: none;
+    color: white; /* Text color */
+    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    font-weight: bold;
+    font-size: 20px; /* Decrease font size */
+    padding: 8px 15px; /* Decrease padding to make the buttons smaller */
+    border-radius: 20px; /* Rounded corners */
+    background-color: transparent; /* Remove background color */
+    transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+/* Hover effect */
+.menu a:hover {
+    background-color: #d6418c; /* Change background color on hover */
 }

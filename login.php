@@ -1,48 +1,65 @@
 <?php
-// Retrieve username and password from form submission
-$username = $_POST['username'];
-$password = $_POST['password'];
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Database connection parameters
-$servername = "sql204.infinityfree.com";
-$username_db = "if0_36314684";
-$password_db = "cs4116silvercon";
-$dbname = "if0_36314684_cs4116silverconnections";
+// Start session
+session_start();
 
-// Create connection
-$conn = new mysqli($servername, $username_db, $password_db, $dbname);
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve form data
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+    // Database connection parameters
+    $servername = "sql204.infinityfree.net";
+    $username_db = "if0_36314684";
+    $password_db = "cs4116silvercon";
+    $dbname = "if0_36314684_cs4116silverconnections";
 
-// Query database for user with submitted username
-// Query database for user with submitted username
-$sql = "SELECT * FROM users WHERE username = '$username'";
-$result = $conn->query($sql);
+    // Create connection
+    $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
-// Check if user exists and verify password
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-
-    // Debugging output
-    echo "Stored Password: " . $row['password'] . "<br>";
-    echo "Submitted Password (Hashed): " . password_hash($password, PASSWORD_DEFAULT) . "<br>";
-
-    // Verify hashed password
-    if (password_verify($password, $row['password'])) {
-        // Password is correct, redirect to success page
-        header("Location: success.php");
-        exit;
-    } else {
-        // Password is incorrect, display error message
-        echo "Incorrect password";
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
-} else {
-    // User does not exist, display error message
-    echo "User not found";
-}
 
-$conn->close();
+    // Prepare SQL statement
+    $stmt = $conn->prepare("SELECT user_id, password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+
+    if (!$stmt->execute()) {
+        die("Error executing SQL query: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+
+    // Check if user exists
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+
+        // Verify password
+        if (password_verify($password, $row['password'])) {
+            // Store user ID in session
+            $_SESSION['user_id'] = $row['user_id'];
+
+            // Redirect to home page
+            header("Location: home.php");
+            exit;
+        } else {
+            header("Location: incorrect_user.php");
+            exit;
+        }
+    } else {
+        header("Location: incorrect_user.php");
+        exit;
+    }
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
+}
 ?>

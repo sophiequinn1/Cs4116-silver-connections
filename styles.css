@@ -107,3 +107,16 @@ html, body {
 .menu a:hover {
     background-color: #d6418c; /* Change text color to yellow on hover */
 }
+
+.error-message {
+    color: black; /* Text color */
+    margin-top: 20px; /* Adjust the margin-top value to increase or decrease the distance from the register button */
+    padding: 15px;
+    border: 2px solid red; /* Red border */
+    background-color: white; /* White background */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Centered text */
+    max-width: 400px; /* Maximum width of the box */
+    margin-left: auto; /* Center the box horizontally */
+    margin-right: auto; /* Center the box horizontally */
+}

@@ -21,7 +21,7 @@
         <a href="#">HOME</a>
         <a href="#">ABOUT US</a>
         <a href="#">SEARCH</a>
-        <a href="#">PROFILE</a>
+        <a href="#">ADD PROFILE</a>
         <a href="#">CONTACT US</a>
     </div>
 </div>
@@ -40,6 +40,9 @@
         <input type="submit" value="Login">
     </form>
     <a href="register_page.php" class="register-button">Register</a>
+    <div class="error-message">
+            User does not exist, or incorrect password entered. Please try again.
+    </div>
 </div>
 
 </body>
