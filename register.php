@@ -20,13 +20,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $full_name = $first_name . ' ' . $last_name;
 
     // Database connection parameters
-    $servername = "sql204.infinityfree.com";
-    $username_db = "if0_36314684";
-    $password_db = "cs4116silvercon";
-    $dbname = "if0_36314684_silver_connections";
+    $servername = "127.0.0.1";
+//    $username_db = "if0_36147664";
+//    $password_db = "cs4116project";
+    $username_db = "root";
+    $password_db = "";
+    $dbname = "if0_36147664_silver_connections";
 
     // Create connection
-    $conn = new mysqli($servername, $username_db, $password_db, $dbname);
+    $conn = new mysqli($servername, $username_db, '', $dbname);
 
     // Check connection
     if ($conn->connect_error) {
@@ -38,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_user = $conn->prepare($sql_user);
 
     // Bind parameters and execute the statement for user registration
-    $stmt_user->bind_param("sssss", $username, $hashed_password, $full_name, $email, $dob);
+    $stmt_user->bind_param("sssss", $username, $password, $full_name, $email, $dob);
     if ($stmt_user->execute()) {
         // Redirect to success.php
         header("Location: success.php");

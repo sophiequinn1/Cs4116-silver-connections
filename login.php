@@ -14,10 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Database connection parameters
-    $servername = "sql204.infinityfree.net";
-    $username_db = "if0_36314684";
-    $password_db = "cs4116silvercon";
-    $dbname = "if0_36314684_cs4116silverconnections";
+    $servername = "127.0.0.1";
+//    $username_db = "if0_36147664";
+//    $password_db = "cs4116project";
+    $username_db = "root";
+    $password_db = "";
+    $dbname = "if0_36147664_silver_connections";
 
     // Create connection
     $conn = new mysqli($servername, $username_db, $password_db, $dbname);
@@ -28,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement
-    $stmt = $conn->prepare("SELECT user_id, password FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT UserId, Password FROM users WHERE Username = ?");
     $stmt->bind_param("s", $username);
 
     if (!$stmt->execute()) {
@@ -42,9 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
 
         // Verify password
-        if (password_verify($password, $row['password'])) {
+        if (strcmp($password, $row['Password']) == 0) {
             // Store user ID in session
-            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['UserId'] = $row['UserId'];
 
             // Redirect to home page
             header("Location: home.php");
