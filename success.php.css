@@ -28,7 +28,7 @@ body {
 .menu a {
     text-decoration: none;
     color: white; /* Text color */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    font-family: sans-serif; /* Use Love Ya Like A Sister font */
     font-weight: bold;
     font-size: 20px; /* Adjust font size */
     padding: 8px 15px; /* Adjust padding to make the buttons smaller */
@@ -47,7 +47,7 @@ body {
 .success-container {
     text-align: center;
     margin-top: 50px;
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use the custom font */
+    font-family: sans-serif; /* Use the custom font */
 }
 
 .success-container h2 {
@@ -69,7 +69,7 @@ body {
     text-decoration: none;
     font-size: 16px;
     transition: background-color 0.3s;
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use the custom font */
+    font-family: sans-serif; /* Use the custom font */
 }
 
 .success-container .login-button:hover {

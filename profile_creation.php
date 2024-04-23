@@ -1,6 +1,7 @@
 <?php
 // Start session
 session_start();
+require 'navbar.php';
 
 // Database connection parameters
 $host = 'sql204.infinityfree.com';
@@ -44,25 +45,8 @@ try {
     <meta charset="UTF-8">
     <title>Create Profile</title>
     <link rel="stylesheet" href="profile_creation.css">
-    <style>
-        @font-face {
-            font-family: 'Love Ya Like A Sister';
-            src: url('LoveYaLikeASister-myEa.ttf') format('truetype');
-        }
-    </style>
 </head>
 <body>
-<div class="banner">
-    <img src="logo.PNG" alt="Silver Connections Logo"> <!-- Logo image -->
-    <div class="menu">
-        <a href="home.php">HOME</a>
-        <a href="aboutPage.php">ABOUT US</a>
-        <a href="searchPage.php">SEARCH</a>
-        <a href="#">PROFILE</a>
-        <a href="contactPage.php">CONTACT US</a>
-        <a href="logout.php">Logout</a>
-    </div>
-</div>
 <div class="container">
     <div class="profile-section">
         <div class="profile-picture">

@@ -26,7 +26,7 @@ html, body {
 .menu a {
     text-decoration: none;
     color: white;
-    font-family: 'Love Ya Like A Sister', sans-serif;
+    font-family: sans-serif;
     font-weight: bold;
     font-size: 20px;
     padding: 8px 15px;
@@ -101,7 +101,7 @@ html, body {
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none; /* Make sure the text doesn't interfere with clicking */
-    font-family: 'Love Ya Like A Sister', sans-serif;
+    font-family: sans-serif;
 }
 
 .profile-picture input[type="file"]:focus + label::after,
@@ -153,5 +153,5 @@ html, body {
 }
 
 .input-group label {
-    font-family: 'Love Ya Like A Sister', cursive;
+    font-family: cursive;
 }

@@ -1,11 +1,19 @@
-<div class="banner">
-    <img src="logo.PNG" alt="Silver Connections Logo"> <!-- Logo image -->
-    <div class="menu">
-        <a href="home.php">HOME</a>
-        <a href="aboutPage.php">ABOUT US</a>
-        <a href="searchPage.php">SEARCH</a>
-        <a href="#">PROFILE</a>
-        <a href="contactPage.php">CONTACT US</a>
-        <a href="logout.php">Logout</a>
-    </div>
-</div>
+<?php
+require 'navbar.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+
+    <link rel="stylesheet" href="success.php.css">
+    <!-- Font -->
+</head>
+<body>
+
+
+</body>
+</html>

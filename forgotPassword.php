@@ -1,5 +1,6 @@
 <?php
-require('config.php');
+require 'config.php';
+require 'navbar.php';
 session_start();
 ?>
 
@@ -12,15 +13,6 @@ session_start();
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-    @font-face {
-        font-family: 'Love Ya Like A Sister';
-        src: url('LoveYaLikeASister-myEa.ttf') format('truetype'); /* Path to LoveYaLikeASister-myEa.ttf */
-        /* You can also include another format (e.g., woff2) if available */
-    }
-</style>
-
-
 
 <body>
 

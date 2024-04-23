@@ -1,0 +1,16 @@
+/* Banner */
+.banner {
+    background-color: #ffb4b4; /* Light pink */
+    padding: 20px; /* Decrease padding to make the banner smaller */
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Align items to the left and right edges */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Make the banner fill the entire width of its container */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+/* Logo */
+.banner img {
+    height: 60px; /* Increase the height of the logo */
+    margin-right: 20px; /* Add margin to separate the logo from the menu */
+}
