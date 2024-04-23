@@ -29,7 +29,7 @@
 
 <div class="register-container">
     <h2>Register</h2>
-    <form action="register.php" method="post"> <!-- Updated form action -->
+    <form action="register.php" method="post">
         <label>
             First Name:
             <input type="text" name="first_name" required>
