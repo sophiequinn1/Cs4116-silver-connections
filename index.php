@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silver Connections</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         @font-face {
             font-family: 'Love Ya Like A Sister';
@@ -18,11 +21,12 @@
 <div class="banner">
     <img src="logo.PNG" alt="Silver Connections Logo"> <!-- Logo image -->
     <div class="menu">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT US</a>
-        <a href="#">SEARCH</a>
+        <a href="home.php">HOME</a>
+        <a href="aboutPage.php">ABOUT US</a>
+        <a href="searchPage.php">SEARCH</a>
         <a href="#">PROFILE</a>
-        <a href="#">CONTACT US</a>
+        <a href="contactPage.php">CONTACT US</a>
+        <a href="logout.php">Logout</a>
     </div>
 </div>
 
@@ -40,6 +44,11 @@
         <input type="submit" value="Login">
     </form>
     <a href="register_page.php" class="register-button">Register</a>
+
+    <span class="button-checkbox">
+        <a href="forgotPassword.php" class="btn btn-link pull-right">Forgot Password?</a>
+    </span>
+
 </div>
 
 </body>
