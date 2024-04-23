@@ -4,21 +4,25 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+echo "Debugging started"; // Debugging statement
+
 // Start session
 session_start();
 
+echo "Session started"; // Debugging statement
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "Form submitted"; // Debugging statement
+
     // Retrieve form data
     $username = $_POST["username"];
     $password = $_POST["password"];
 
     // Database connection parameters
-    $servername = "127.0.0.1";
-//    $username_db = "if0_36147664";
-//    $password_db = "cs4116project";
-    $username_db = "root";
-    $password_db = "";
+    $servername = "sql204.infinityfree.com";
+    $username_db = "if0_36147664";
+    $password_db = "cs4116project";
     $dbname = "if0_36147664_silver_connections";
 
     // Create connection
@@ -27,14 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
+    } else {
+        echo "Connected to database"; // Debugging statement
     }
 
     // Prepare SQL statement
-    $stmt = $conn->prepare("SELECT UserId, Password FROM users WHERE Username = ?");
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
 
     if (!$stmt->execute()) {
         die("Error executing SQL query: " . $stmt->error);
+    } else {
+        echo "SQL query executed successfully"; // Debugging statement
     }
 
     $result = $stmt->get_result();
@@ -44,9 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
 
         // Verify password
-        if (strcmp($password, $row['Password']) == 0) {
+        if (password_verify($password, $row['password'])) {
             // Store user ID in session
-            $_SESSION['UserId'] = $row['UserId'];
+            $_SESSION['UserId'] = $row['id'];
 
             // Redirect to home page
             header("Location: home.php");
