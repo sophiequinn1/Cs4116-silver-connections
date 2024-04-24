@@ -5,10 +5,14 @@ require 'checkAdmin.php';
 
 $userId = $_GET['UserId'];
 
-$sql="SELECT * FROM profiles WHERE UserId = '$userId'";
+$sql = "SELECT profiles.*, users.* 
+        FROM profiles 
+        INNER JOIN users 
+        ON profiles.UserId = users.UserId 
+        WHERE profiles.UserId = '$userId'";
+
+// Execute the query
 $result = $db->query($sql);
-$sql2="SELECT * FROM users WHERE UserId = '$userId'";
-$result2 = $db->query($sql2);
 ?>
 
 <!DOCTYPE html>
@@ -24,13 +28,11 @@ $result2 = $db->query($sql2);
 <div class="button-container">
     <button id="button1">Like</button>
     <button id="button2"></button>
-    <?php
-    if ($isAdmin) {
-        echo '<button id="button3">Ban</button>';
-    } else {
-        echo '<button id="button3">Report</button>';
-    }
-    ?>
+    <?php if ($isAdmin): ?>
+        <button method="post" action="buttonActions.php" value="ban">Ban</button>
+    <?php else: ?>
+        <button method="post" action="buttonActions.php" value="block">Block</button>
+    <?php endif; ?>
 </div>
 <div id="profilesDiv" class="tabcontent" style="margin-left:20px">
     <p style="font-size:20px; text-align: left; margin-top:30px;">Oldies:</p>
@@ -41,17 +43,16 @@ $result2 = $db->query($sql2);
             <th>View Profile</th>
         <tr>
 
-            <?php
+        <?php
 
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $row2 = $result->fetch_assoc();
-                    echo "<tr><td><br>" . $row2["Username"].  "</td><td><br>" . $row["Interests"]. "'> ". "</a></td></tr>";
-                }
-                echo "</table>";
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "<tr><td><br>" . $row["Username"].  "</td><td><br>" . $row["Interests"]. "'> ". "</a></td></tr>" . $row["Bio"]. "'> ". "</a></td></tr>";
             }
+            echo "</table>";
+        }
 
-            ?>
+        ?>
 
     </table>
 </div>
