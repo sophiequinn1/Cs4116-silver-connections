@@ -1,6 +1,7 @@
 <?php
 require 'config.php';
 require 'navbar.php';
+require 'checkAdmin.php';
 
 $userId = $_GET['UserId'];
 
@@ -20,7 +21,18 @@ $result2 = $db->query($sql2);
 </head>
 <body>
 
-<div id="profilesDiv" class="tabcontent" style="margin-left:20px";>
+<div class="button-container">
+    <button id="button1">Like</button>
+    <button id="button2"></button>
+    <?php
+    if ($isAdmin) {
+        echo '<button id="button3">Ban</button>';
+    } else {
+        echo '<button id="button3">Report</button>';
+    }
+    ?>
+</div>
+<div id="profilesDiv" class="tabcontent" style="margin-left:20px">
     <p style="font-size:20px; text-align: left; margin-top:30px;">Oldies:</p>
     <table width="60%">
         <tr>
