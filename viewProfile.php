@@ -11,7 +11,6 @@ $sql = "SELECT profiles.*, users.*
         ON profiles.UserId = users.UserId 
         WHERE profiles.UserId = '$userId'";
 
-// Execute the query
 $result = $db->query($sql);
 ?>
 
