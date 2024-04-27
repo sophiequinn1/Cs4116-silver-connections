@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #b8b8b8;
+    background: linear-gradient(45deg, #ff99cc, #ff66b2, #e64980);
 }
 
 .banner {
@@ -19,6 +19,13 @@ html, body {
     margin-right: 20px;
 }
 
+.create-profile-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Love Ya Like A Sister', cursive;
+    margin-left: 200px; /* Adjust the value as needed */
+}
 .menu {
     margin-left: auto;
 }
@@ -40,92 +47,86 @@ html, body {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fbb3b3;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    height: 100vh; /* Full viewport height */
+    margin-top: -50px; /* Adjust the top margin to move the content up */
 }
 
 .profile-section {
+    background-color: #fbb3b3; /* Pink background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
     display: flex;
-    flex-direction: column; /* Change the direction to column */
-    align-items: flex-start; /* Center the children horizontally */
+    align-items: flex-start;
+    justify-content: space-between;
+    background-image: url('logo.png');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) calc(100% - 20px);
 }
 
 .profile-picture {
-    width: 300px; /* Set width to make it a square */
-    height: 300px; /* Set height to make it a square */
-    margin-right: 20px; /* Space between profile picture and logo */
-    overflow: hidden; /* Hide overflow to ensure it stays a square */
-    background-color: white; /* Set background color to white */
-    position: relative; /* Add position relative for absolute positioning */
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    margin-right: 20px;
+    padding: 20px;
+    background-color: white; /* White background for the profile picture box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden; /* Hide overflowing content */
+}
+
+@font-face {
+    font-family: 'Love Ya Like A Sister';
+    src: url('LoveYaLikeASister-myEa.ttf') format('truetype');
+}
+
+.custom-file-label {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ccc;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+}
+
+.custom-file-label:hover {
+    background-color: #f5f5f5;
 }
 
 .profile-picture img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure image covers the square area */
-    cursor: pointer;
-    opacity: 0; /* Hide the image */
-}
-
-.profile-picture input[type="file"] {
-    display: none;
-}
-
-.profile-picture label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border: 2px dashed #ccc;
-    text-align: center;
-    cursor: pointer;
-    background-color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-}
-
-.profile-picture label::after {
-    content: "Select Profile Picture"; /* Set your custom text */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none; /* Make sure the text doesn't interfere with clicking */
-    font-family: 'Love Ya Like A Sister', sans-serif;
-}
-
-.profile-picture input[type="file"]:focus + label::after,
-.profile-picture input[type="file"]:valid + label::after {
-    display: none; /* Hide the text when the input is focused or has a valid file */
-}
-
-.logo {
-    margin-top: 20px;
-    text-align: center; /* Center the logo horizontally */
-}
-
-.logo img {
-    max-width: 100%;
-    margin-top: 70px;
-    margin-left: 20px;
+    object-fit: cover;
 }
 
 .profile-details {
-    width: 65%;
+    flex-grow: 1;
+    width: calc(100% - 340px);
+    padding-right: 20px;
+
+}
+
+.hobbies-group-one {
+    padding-right: 20px; /* Adding padding to the right */
+}
+
+.hobbies-group-two {
+    padding-right: 20px; /* Adding padding to the right */
+}
+
+.age-group {
+    margin-top: 0; /* Reset margin for age group */
 }
 
 .input-group {
     margin-bottom: 20px;
+    padding-right: 20px;  /* Add padding to the right */
 }
 
 .input-group label {
@@ -135,7 +136,8 @@ html, body {
 }
 
 .input-group input[type="text"],
-.input-group textarea {
+.input-group textarea,
+.input-group select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -148,10 +150,47 @@ html, body {
 }
 
 .input-group input[type="text"] + input[type="text"],
-.input-group input[type="text"] + textarea {
+.input-group input[type="text"] + textarea,
+.input-group select + input[type="text"],
+.input-group select + textarea {
     margin-left: 10px;
 }
 
 .input-group label {
     font-family: 'Love Ya Like A Sister', cursive;
 }
+
+.pic-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 40px;
+}
+
+.pic-box-1, .pic-box-two, .pic-box-three {
+    background-color: white;
+    border-radius: 4px;
+    padding: 0px;
+    margin-bottom: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* Adjusting the height to make them smaller */
+    height: 100px;
+    margin-bottom: 43px;
+}
+
+.pic-box-1 img, .pic-box-two img, .pic-box-three img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Clearfix to ensure proper wrapping */
+.profile-section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
