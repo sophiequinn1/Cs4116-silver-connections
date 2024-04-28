@@ -14,7 +14,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background: linear-gradient(45deg, #ff99cc, #ff66b2, #e64980);">
 
 <div class="banner">
     <img src="logo.PNG" alt="Silver Connections Logo"> <!-- Logo image -->

@@ -1,1 +1,13 @@
-<h3>home</h3>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect Button</title>
+</head>
+<body>
+
+<form id="redirectForm" method="post" action="profile_preview.php">
+    <button type="submit">Go to Profile Preview Page</button>
+</form>
+
+</body>
+</html>
