@@ -14,7 +14,7 @@ session_start();
 
     <!-- Font -->
 </head>
-<body>
+<body style="background: linear-gradient(45deg, #ff99cc, #ff66b2, #e64980);">
 
 <div class="register-container">
     <h2>Register</h2>

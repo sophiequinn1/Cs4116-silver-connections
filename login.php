@@ -14,12 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Database connection parameters
-    $servername = "127.0.0.1";
-//    $username_db = "if0_36147664";
-//    $password_db = "cs4116project";
+    $servername = "localhost";
     $username_db = "root";
     $password_db = "";
-    $dbname = "if0_36147664_silver_connections";
+    $dbname = "local_database";
 
     // Create connection
     $conn = new mysqli($servername, $username_db, $password_db, $dbname);
@@ -30,7 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement
-    $stmt = $conn->prepare("SELECT UserId, Password FROM users WHERE Username = ?");
+
+    $stmt = $conn->prepare("SELECT id, password, has_profile FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
 
     if (!$stmt->execute()) {
@@ -44,13 +43,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
 
         // Verify password
-        if (strcmp($password, $row['Password']) == 0) {
-            // Store user ID in session
-            $_SESSION['UserId'] = $row['UserId'];
+        if (password_verify($password, $row['password'])) {
+            // Store user ID and has_profile in session
+            $_SESSION['UserId'] = $row['id'];
+            $_SESSION['has_profile'] = $row['has_profile'];
 
-            // Redirect to home page
-            header("Location: home.php");
-            exit;
+            // Check has_profile value
+            if ($row['has_profile'] == 1) {
+                // User has a profile, redirect to home.php
+                header("Location: home.php");
+                exit;
+            } else {
+                // User does not have a profile, redirect to profile_creation.php
+                header("Location: profile_creation.php");
+                exit;
+            }
         } else {
             header("Location: incorrect_user.php");
             exit;
@@ -62,6 +69,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Close statement and connection
     $stmt->close();
-    $conn->close();
 }
 ?>

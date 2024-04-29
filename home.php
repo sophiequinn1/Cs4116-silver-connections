@@ -5,15 +5,15 @@ require 'navbar.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silver Connections</title>
-    <h3>home</h3>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>Redirect Button</title>
 </head>
 <body>
+
+<form id="redirectForm" method="post" action="profile_preview.php">
+    <button type="submit">Go to Profile Preview Page</button>
+</form>
 
 </body>
 </html>
