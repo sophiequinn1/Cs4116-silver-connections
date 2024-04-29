@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'navbar.php';
 
 $host = 'localhost';
 $dbname = 'local_database';
@@ -58,14 +59,7 @@ try {
     <div class="create-profile-text">
         CREATE A PROFILE
     </div>
-    <div class="menu">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT US</a>
-        <a href="#">SEARCH</a>
-        <a href="#">PROFILE</a>
-        <a href="#">CONTACT US</a>
-    </div>
-</div>
+  </div>
 <div class="container">
     <form action="profile_creation_process.php" method="post" enctype="multipart/form-data">
         <div class="profile-section">

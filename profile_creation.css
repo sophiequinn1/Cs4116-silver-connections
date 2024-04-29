@@ -33,7 +33,7 @@ html, body {
 .menu a {
     text-decoration: none;
     color: white;
-    font-family: 'Love Ya Like A Sister', sans-serif;
+    font-family: sans-serif;
     font-weight: bold;
     font-size: 20px;
     padding: 8px 15px;
@@ -102,6 +102,26 @@ html, body {
 .profile-picture img {
     width: 100%;
     height: 100%;
+    border: 2px dashed #ccc;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.profile-picture label::after {
+    content: "Select Profile Picture"; /* Set your custom text */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Make sure the text doesn't interfere with clicking */
+    font-family: sans-serif;
     object-fit: cover;
 }
 
@@ -192,5 +212,3 @@ html, body {
     display: table;
     clear: both;
 }
-
-

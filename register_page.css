@@ -8,7 +8,7 @@ html, body {
 .register-container {
     text-align: center; /* Center the content horizontally */
     margin-top: 70px; /* Add space from the top */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Set font family */
+    font-family: sans-serif;
 }
 
 /* Form */
@@ -45,7 +45,7 @@ html, body {
     border: none; /* Remove border */
     border-radius: 5px; /* Add rounded corners */
     font-size: 16px; /* Set font size */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Set font family */
+    font-family: sans-serif; /* Set font family */
     background-color: #d6418c; /* Set background color */
     color: #fff; /* Set text color */
     cursor: pointer; /* Change cursor to pointer */
@@ -81,7 +81,7 @@ html, body {
 .menu a {
     text-decoration: none;
     color: white; /* Text color */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    font-family: sans-serif; /* Use Love Ya Like A Sister font */
     font-weight: bold;
     font-size: 20px; /* Decrease font size */
     padding: 8px 15px; /* Decrease padding to make the buttons smaller */

@@ -1,3 +1,8 @@
+<?php
+session_start();
+require 'config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,26 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silver Connections</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-    <style>
-        @font-face {
-            font-family: 'Love Ya Like A Sister';
-            src: url('LoveYaLikeASister-myEa.ttf') format('truetype'); /* Path to LoveYaLikeASister-myEa.ttf */
-            /* You can also include another format (e.g., woff2) if available */
-        }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<div class="banner">
-    <img src="logo.PNG" alt="Silver Connections Logo"> <!-- Logo image -->
-    <div class="menu">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT US</a>
-        <a href="#">SEARCH</a>
-        <a href="#">PROFILE</a>
-        <a href="#">CONTACT US</a>
-    </div>
-</div>
 
 <div class="login-container">
     <img src="title.PNG" alt="Silver Connections Title">
@@ -37,9 +27,14 @@
             <input type="password" name="password" placeholder="Password...">
         </label>
         <br>
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" class="btn">
     </form>
-    <a href="register_page.php" class="register-button">Register</a>
+    <a href="register_page.php" class="register-button btn btn-link">Register</a>
+
+    <span class="button-checkbox">
+        <a href="forgotPassword.php" class="btn btn-link">Forgot Password?</a>
+    </span>
+
 </div>
 
 </body>
