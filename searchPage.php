@@ -6,8 +6,6 @@ require 'navbar.php';
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
-$sql="SELECT * FROM users";
-$result = $db->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +21,14 @@ $result = $db->query($sql);
 <body>
 
 <div>
-    <div class="pull-left">
-        <button id="resultButton" class="tablinks" id="search" onclick="openTable(event, 'searchDIV')">Profiles</button>
+    <div>
+        <form action="" method="post">
+            <input type="text" name="searchName" class="input-group" placeholder="Name...">
+            <input type="text" name="searchInterest" class="input-group" placeholder="Interest...">
+            <input type="text" name="searchAge" class="input-group" placeholder="Age...">
+            <input type="submit" value="Search" onclick="openTable(event, 'profilesDiv')">
+        </form>
     </div>
-    <form action="" method="post">
-        <input type="text" name="search" class="input-group" placeholder="Search...">
-    </form>
 
     <div id="profilesDiv" class="tabcontent" style="margin-left:20px";>
         <p style="font-size:20px; text-align: left; margin-top:30px;">Oldies:</p>
@@ -39,18 +39,39 @@ $result = $db->query($sql);
                 <th>View Profile</th>
             <tr>
 
-            <?php
+        <?php
 
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr><td><br>" . $row["Username"].  "</td><td><br>" . $row["Email"]. "</td><td><br><a href='viewProfile.php?UserId=" . $row['UserId'] . "'> View Profile". "</a></td></tr>";
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $nameValue = $_POST['searchName'];
+                $interestValue = $_POST['searchInterest'];
+                $ageValue = $_POST['searchAge'];
+
+                $sql = "SELECT profiles.*, users.* 
+                        FROM profiles 
+                        INNER JOIN users 
+                        ON profiles.UserId = users.UserId
+                        WHERE Username = ? OR Interests LIKE ? OR Age = ?";
+                $stmt = $db->prepare($sql);
+                $stmt->bind_param("ssi", $nameValue, $interestValue, $ageValue);
+                $stmt->execute();
+
+                $result = $stmt->get_result();
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        if ($row["UserId"] != $_SESSION["UserId"]) {
+                            echo "<tr><td><br>" . $row["Username"] . "</td><td><br>" . $row["Email"] . "</td><td><br><a href='viewProfile.php?UserId=" . $row['UserId'] . "'> View Profile" . "</a></td></tr>";
+                        }
+                    }
                 }
-                echo "</table>";
-            } else {
-                echo "0 results";
+                else {
+                    echo "0 results";
+                }
+                $stmt->close();
             }
 
-            ?>
+
+            echo "</table>";
+        ?>
 
         </table>
     </div>

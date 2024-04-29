@@ -75,3 +75,11 @@ body {
 .success-container .login-button:hover {
     background-color: #b72b6a;
 }
+
+.button-container {
+    text-align: right;
+}
+
+.button {
+    margin-left: 10px;
+}

@@ -1,7 +1,6 @@
 <?php
 session_start();
 require 'config.php';
-require 'navbar.php';
 ?>
 
 <!DOCTYPE html>

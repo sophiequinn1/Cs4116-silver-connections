@@ -1,7 +1,7 @@
 <?php
+session_start();
 require 'config.php';
 require 'navbar.php';
-session_start();
 ?>
 
 <!DOCTYPE html>
