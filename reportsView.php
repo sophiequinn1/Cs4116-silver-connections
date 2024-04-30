@@ -34,14 +34,14 @@ if ($db->connect_error) {
                 <?php
                 $sql = "SELECT *
                     FROM reports
-                    LEFT JOIN users ON users.userid = reports.userid1";
+                    LEFT JOIN users ON users.id = reports.userid1";
                     $stmt = $db->prepare($sql);
                     $stmt->execute();
                     $result = $stmt->get_result();
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo "<tr><td><br>" . $row["Username"] . "</td><td><br>" . $row["reportReason"] . "</td><td><br>" . $row['reportDateTime'] . "</td><td><br><a href='viewReportInfo.php?ReportId=" . $row['reportId'] . "'> View Report" . "</a></td></tr>";
+                            echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["reportReason"] . "</td><td><br>" . $row['reportDateTime'] . "</td><td><br><a href='viewReportInfo.php?ReportId=" . $row['reportId'] . "'> View Report" . "</a></td></tr>";
                         }
                     }
                     else {

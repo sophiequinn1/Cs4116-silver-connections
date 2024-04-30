@@ -6,10 +6,10 @@ error_reporting(E_ALL);
 echo "Debugging started"; // Debugging statement
 
 // Database connection parameters
-$servername = "localhost";
-$username_db = "root";
-$password_db = "";
-$dbname = "local_database";
+$servername = "sql204.infinityfree.com";
+$username_db = "if0_36147664";
+$password_db = "cs4116project";
+$dbname = "if0_36147664_silver_connections";
 
 // Create connection
 $conn = new mysqli($servername, $username_db, $password_db, $dbname);
@@ -69,15 +69,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $full_name = $first_name . ' ' . $last_name;
 
     // Database connection parameters
-    $servername = "127.0.0.1";
-//    $username_db = "if0_36147664";
-//    $password_db = "cs4116project";
-    $username_db = "root";
-    $password_db = "";
+    $servername = "sql204.infinityfree.com";
+    $username_db = "if0_36147664";
+    $password_db = "cs4116project";
     $dbname = "if0_36147664_silver_connections";
 
     // Create connection
-    $conn = new mysqli($servername, $username_db, '', $dbname);
+    $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
     // Check connection
     if ($conn->connect_error) {

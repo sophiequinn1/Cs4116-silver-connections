@@ -2,13 +2,13 @@
 session_start();
 require 'navbar.php';
 
-$host = 'localhost';
-$dbname = 'local_database';
-$username = 'root';
-$password = '';
+$servername = "sql204.infinityfree.com";
+$username_db = "if0_36147664";
+$password_db = "cs4116project";
+$dbname = "if0_36147664_silver_connections";
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username_db, $password_db);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $userID = $_SESSION['UserId'] ?? null;

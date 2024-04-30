@@ -14,10 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Database connection parameters
-    $servername = "localhost";
-    $username_db = "root";
-    $password_db = "";
-    $dbname = "local_database";
+    $servername = "sql204.infinityfree.com";
+    $username_db = "if0_36147664";
+    $password_db = "cs4116project";
+    $dbname = "if0_36147664_silver_connections";
 
     // Create connection
     $conn = new mysqli($servername, $username_db, $password_db, $dbname);

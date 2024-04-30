@@ -6,13 +6,13 @@ session_start();
 // Check if the user is logged in and the session variable is set
 if(isset($_SESSION['UserId'])) {
     // Connect to your database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "local_database";
+    $servername = "sql204.infinityfree.com";
+    $username_db = "if0_36147664";
+    $password_db = "cs4116project";
+    $dbname = "if0_36147664_silver_connections";
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
     // Check connection
     if ($conn->connect_error) {
