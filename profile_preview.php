@@ -14,6 +14,16 @@ if(isset($_SESSION['UserId'])) {
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
+    // Connect to your database
+    $servername = "sql204.infinityfree.com";
+    $username_db = "if0_36147664";
+    $password_db = "cs4116project";
+    $dbname = "if0_36147664_silver_connections";
+
+    // Create connection
+    $conn = new mysqli($servername, $username_db, $password_db, $dbname);
+
+
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

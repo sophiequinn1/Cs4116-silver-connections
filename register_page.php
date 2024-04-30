@@ -1,3 +1,9 @@
+<?php
+require 'config.php';
+require 'navbar.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,29 +13,12 @@
     <link rel="stylesheet" href="register_page.css"> <!-- Link to your CSS file -->
 
     <!-- Font -->
-    <style>
-        @font-face {
-            font-family: 'Love Ya Like A Sister';
-            src: url('LoveYaLikeASister-myEa.ttf') format('truetype'); /* Path to LoveYaLikeASister-myEa.ttf */
-        }
-    </style>
 </head>
 <body style="background: linear-gradient(45deg, #ff99cc, #ff66b2, #e64980);">
 
-<div class="banner">
-    <img src="logo.PNG" alt="Silver Connections Logo"> <!-- Logo image -->
-    <div class="menu">
-        <a href="#">HOME</a>
-        <a href="#">ABOUT US</a>
-        <a href="#">SEARCH</a>
-        <a href="#">PROFILE</a>
-        <a href="#">CONTACT US</a>
-    </div>
-</div>
-
 <div class="register-container">
     <h2>Register</h2>
-    <form action="register.php" method="post"> <!-- Updated form action -->
+    <form action="register.php" method="post">
         <label>
             First Name:
             <input type="text" name="first_name" required>

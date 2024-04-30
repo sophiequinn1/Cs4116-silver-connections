@@ -51,7 +51,7 @@ html, body {
     border: 2px solid #ccc; /* Add a border to the login button */
     border-radius: 5px; /* Add rounded corners to the login button */
     font-size: 16px; /* Keep font size */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Change font to Love Ya Like A Sister */
+    font-family: sans-serif; /* Change font to Love Ya Like A Sister */
     outline: none; /* Remove outline */
     background-color: transparent; /* Remove background color */
     color: #d6418c; /* Text color for the submit button */
@@ -65,7 +65,7 @@ html, body {
 
 .register-button {
     display: inline-block;
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Change font to Love Ya Like A Sister */
+    font-family: sans-serif;
     font-size: 16px; /* Adjust font size */
     color: black; /* Text color for the register button */
     text-decoration: none; /* Remove default underline */
@@ -85,7 +85,7 @@ html, body {
 .menu a {
     text-decoration: none;
     color: white; /* Text color */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    font-family: sans-serif; /* Use Love Ya Like A Sister font */
     font-weight: bold;
     font-size: 20px; /* Decrease font size */
     padding: 8px 15px; /* Decrease padding to make the buttons smaller */
