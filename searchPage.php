@@ -46,20 +46,20 @@ if ($db->connect_error) {
                 $interestValue = $_POST['searchInterest'];
                 $ageValue = $_POST['searchAge'];
 
-                $sql = "SELECT profiles.*, users.* 
-                        FROM profiles 
+                $sql = "SELECT Profiles.*, users.* 
+                        FROM Profiles 
                         INNER JOIN users 
-                        ON profiles.UserId = users.UserId
-                        WHERE Username = ? OR Interests LIKE ? OR Age = ?";
+                        ON Profiles.UserId = users.id
+                        WHERE username = ? OR Interests LIKE ? OR Age = ?";
+
                 $stmt = $db->prepare($sql);
                 $stmt->bind_param("ssi", $nameValue, $interestValue, $ageValue);
                 $stmt->execute();
-
                 $result = $stmt->get_result();
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        if ($row["UserId"] != $_SESSION["UserId"]) {
-                            echo "<tr><td><br>" . $row["Username"] . "</td><td><br>" . $row["Email"] . "</td><td><br><a href='viewProfile.php?UserId=" . $row['UserId'] . "'> View Profile" . "</a></td></tr>";
+                        if ($row["id"] != $_SESSION["UserId"]) {
+                            echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["email"] . "</td><td><br><a href='viewProfile.php?UserId=" . $row['id'] . "'> View Profile" . "</a></td></tr>";
                         }
                     }
                 }

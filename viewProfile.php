@@ -7,7 +7,7 @@ require 'checkAdmin.php';
 $userId = $_SESSION['UserId'];
 $userId2 = $_GET['UserId'];
 
-$stmt = $db->prepare("SELECT * FROM bannedusers WHERE UserId = ?");
+$stmt = $db->prepare("SELECT * FROM BannedUsers WHERE UserId = ?");
 $stmt->bind_param("i", $userId2);
 $stmt->execute();
 if ($stmt->fetch()) {
@@ -17,7 +17,7 @@ if ($stmt->fetch()) {
 }
 $stmt->close();
 
-$stmt = $db->prepare("SELECT * FROM blocks WHERE UserId1 = ? AND UserId2 = ?");
+$stmt = $db->prepare("SELECT * FROM Blocks WHERE UserId1 = ? AND UserId2 = ?");
 $stmt->bind_param("ii", $userId, $userId2);
 $stmt->execute();
 if ($stmt->fetch()) {
@@ -27,7 +27,7 @@ if ($stmt->fetch()) {
 }
 $stmt->close();
 
-$stmt = $db->prepare("SELECT * FROM blocks WHERE UserId1 = ? AND UserId2 = ?");
+$stmt = $db->prepare("SELECT * FROM Blocks WHERE UserId1 = ? AND UserId2 = ?");
 $stmt->bind_param("ii", $userId2, $userId1);
 $stmt->execute();
 if ($stmt->fetch()) {
@@ -38,7 +38,7 @@ if ($stmt->fetch()) {
 $stmt->close();
 
 $ownProfile = $userId == $userId2;
-$stmt = $db->prepare("SELECT * FROM likes WHERE UserId1 = ? AND UserId2 = ?");
+$stmt = $db->prepare("SELECT * FROM Likes WHERE UserId1 = ? AND UserId2 = ?");
 $stmt->bind_param("ii", $userId, $userId2);
 $stmt->execute();
 if ($stmt->fetch()) {
@@ -48,7 +48,7 @@ if ($stmt->fetch()) {
 }
 $stmt->close();
 
-$sql = "SELECT * FROM matches WHERE (UserId1 = ? AND UserId2 = ?) OR (UserId1 = ? AND UserId2 = ?)";
+$sql = "SELECT * FROM Matches WHERE (UserId1 = ? AND UserId2 = ?) OR (UserId1 = ? AND UserId2 = ?)";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("iiii", $userId, $userId2, $userId2, $userId);
 $stmt->execute();
@@ -64,11 +64,11 @@ if($ownProfile){
 else{
     $userIdToView = $userId2;
 }
-$sql = "SELECT profiles.*, users.* 
-        FROM profiles 
+$sql = "SELECT Profiles.*, users.* 
+        FROM Profiles 
         INNER JOIN users 
-        ON profiles.UserId = users.UserId 
-        WHERE profiles.UserId = '$userIdToView'";
+        ON Profiles.UserId = users.id 
+        WHERE Profiles.UserId = '$userIdToView'";
 
 $result = $db->query($sql);
 
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userId2 = $_POST['UserId2'];
 
         if ($alreadyLiked) {
-            $stmt = $db->prepare("DELETE FROM likes WHERE UserId1 = ? AND UserId2 = ?");
+            $stmt = $db->prepare("DELETE FROM Likes WHERE UserId1 = ? AND UserId2 = ?");
             // form kept resubmitting when refreshing the page so button kept being pressed
             echo "<meta http-equiv='refresh' content='0'>'";
             $stmt->bind_param("ii", $userId, $userId2);
@@ -86,20 +86,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->close();
 
             if($alreadyMatched){
-                $stmt = $db->prepare("DELETE FROM matches WHERE (UserId1 = ? AND UserId2 = ?) OR (UserId1 = ? AND UserId2 = ?)");
+                $stmt = $db->prepare("DELETE FROM Matches WHERE (UserId1 = ? AND UserId2 = ?) OR (UserId1 = ? AND UserId2 = ?)");
                 echo "<meta http-equiv='refresh' content='0'>'";
                 $stmt->bind_param("iiii", $userId, $userId2, $userId2, $userId);
                 $stmt->execute();
                 $stmt->close();
             }
         } else {
-            $stmt = $db->prepare("INSERT INTO likes (UserId1, UserId2, LikeDateTime) VALUES (?, ?, NOW())");
+            $stmt = $db->prepare("INSERT INTO Likes (UserId1, UserId2, LikeDateTime) VALUES (?, ?, NOW())");
             echo "<meta http-equiv='refresh' content='0'>'";
             $stmt->bind_param("ii", $userId, $userId2);
             $stmt->execute();
             $stmt->close();
 
-            $stmt = $db->prepare("SELECT * FROM likes WHERE UserId1 = ? AND UserId2 = ?");
+            $stmt = $db->prepare("SELECT * FROM Likes WHERE UserId1 = ? AND UserId2 = ?");
             $stmt->bind_param("ii", $userId2, $userId);
             $stmt->execute();
             if ($stmt->fetch()) {
@@ -115,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else if(isset($_POST['ban'])) {
         if($isBanned){
-            $stmt = $db->prepare("DELETE FROM bannedusers WHERE UserId = ?");
+            $stmt = $db->prepare("DELETE FROM BannedUsers WHERE UserId = ?");
             echo "<meta http-equiv='refresh' content='0'>'";
             $stmt->bind_param("i", $userId2);
             $stmt->execute();
@@ -130,22 +130,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     else if(isset($_POST['deleteAccount'])) {
-        $stmt = $db->prepare("DELETE FROM users WHERE UserId = ?");
+        $stmt = $db->prepare("DELETE FROM users WHERE id = ?");
         echo "<meta http-equiv='refresh' content='0'>'";
         $stmt->bind_param("i", $userId2);
         $stmt->execute();
         $stmt->close();
-        $stmt = $db->prepare("DELETE FROM profiles WHERE UserId = ?");
+        $stmt = $db->prepare("DELETE FROM Profiles WHERE UserId = ?");
         echo "<meta http-equiv='refresh' content='0'>'";
         $stmt->bind_param("i", $userId2);
         $stmt->execute();
         $stmt->close();
-        $stmt = $db->prepare("DELETE FROM likes WHERE UserId1 = ? OR UserId2 = ?");
+        $stmt = $db->prepare("DELETE FROM Likes WHERE UserId1 = ? OR UserId2 = ?");
         echo "<meta http-equiv='refresh' content='0'>'";
         $stmt->bind_param("ii", $userId2, $userId2);
         $stmt->execute();
         $stmt->close();
-        $stmt = $db->prepare("DELETE FROM matches WHERE UserId1 = ? OR UserId2 = ?");
+        $stmt = $db->prepare("DELETE FROM Matches WHERE UserId1 = ? OR UserId2 = ?");
         echo "<meta http-equiv='refresh' content='0'>'";
         $stmt->bind_param("ii", $userId2, $userId2);
         $stmt->execute();
@@ -153,14 +153,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else if(isset($_POST['block'])) {
         if ($isBlocker){
-            $stmt = $db->prepare("DELETE FROM blocks WHERE UserId1 = ? AND UserId2 = ?");
+            $stmt = $db->prepare("DELETE FROM Blocks WHERE UserId1 = ? AND UserId2 = ?");
             echo "<meta http-equiv='refresh' content='0'>'";
             $stmt->bind_param("ii", $userId, $userId2);
             $stmt->execute();
             $stmt->close();
         }
         else {
-            $stmt = $db->prepare("INSERT INTO blocks (UserId1, UserId2, BlockDateTime) VALUES (?, ?, NOW())");
+            $stmt = $db->prepare("INSERT INTO Blocks (UserId1, UserId2, BlockDateTime) VALUES (?, ?, NOW())");
             echo "<meta http-equiv='refresh' content='0'>'";
             $stmt->bind_param("ii", $userId, $userId2);
             $stmt->execute();
@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     else if(isset($_POST['report'])) {
-        $stmt = $db->prepare("INSERT INTO reports (UserId1, UserId2, reportDateTime, reportReason) VALUES (?, ?, NOW(), 'reported')");
+        $stmt = $db->prepare("INSERT INTO reports (userId1, userId2, reportDateTime, reportReason) VALUES (?, ?, NOW(), 'reported')");
         echo "<meta http-equiv='refresh' content='0'>'";
         $stmt->bind_param("ii", $userId, $userId2);
         $stmt->execute();
@@ -273,7 +273,7 @@ else:
                     else{
                         $gender = "Female";
                     }
-                echo "<tr><td><br>" . $row["Username"].  "</td><td><br>" . $row["Interests"]. "</td><td><br>" . $gender. "</td><td><br>" . $row["Age"] . "</a></td></tr>" . $row["Bio"]. " ". "</a></td></tr>";
+                echo "<tr><td><br>" . $row["username"].  "</td><td><br>" . $row["Interests"]. "</td><td><br>" . $gender. "</td><td><br>" . $row["Age"] . "</a></td></tr>" . $row["Bio"]. " ". "</a></td></tr>";
             }
             echo "</table>";
         }

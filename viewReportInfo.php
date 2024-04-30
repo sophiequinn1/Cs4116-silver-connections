@@ -40,11 +40,11 @@ if ($result->num_rows > 0) {
             <tr>
 
         <?php
-        $sql = "SELECT profiles.*, users.* 
-                        FROM profiles 
+        $sql = "SELECT Profiles.*, users.* 
+                        FROM Profiles 
                         INNER JOIN users 
-                        ON profiles.UserId = users.UserId
-                        WHERE users.UserId = ?";
+                        ON Profiles.UserId = users.id
+                        WHERE users.id = ?";
         $stmt = $db->prepare($sql);
         $stmt->bind_param("i", $reportedUser);
         $stmt->execute();
@@ -52,8 +52,8 @@ if ($result->num_rows > 0) {
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                if ($row["UserId"] != $_SESSION["UserId"]) {
-                    echo "<tr><td><br>" . $row["Username"] . "</td><td><br>" . $row["Email"] . "</td><td><br><a href='viewProfile.php?UserId=" . $row['UserId'] . "'> View Profile" . "</a></td></tr>";
+                if ($row["id"] != $_SESSION["UserId"]) {
+                    echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["email"] . "</td><td><br><a href='viewProfile.php?UserId=" . $row['id'] . "'> View Profile" . "</a></td></tr>";
                 }
             }
         }
