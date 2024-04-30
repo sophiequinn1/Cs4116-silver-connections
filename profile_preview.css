@@ -5,93 +5,93 @@ html, body {
 }
 
 .banner {
-    background-color: #ffb4b4; /* Light pink */
-    padding: 20px; /* Decrease padding to make the banner smaller */
-    display: flex; /* Use flexbox to align items */
-    justify-content: space-between; /* Align items to the left and right edges */
-    align-items: center; /* Center items vertically */
-    width: 100%; /* Make the banner fill the entire width of its container */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    background-color: #ffb4b4;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .banner img {
-    height: 60px; /* Increase the height of the logo */
-    margin-right: 20px; /* Add margin to separate the logo from the menu */
+    height: 60px;
+    margin-right: 20px;
 }
 
 .menu {
-    margin-left: auto; /* Push menu items to the right */
+    margin-left: auto;
 }
 
 .menu a {
     text-decoration: none;
-    color: white; /* Text color */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    color: white;
+    font-family: 'Love Ya Like A Sister', sans-serif;
     font-weight: bold;
-    font-size: 20px; /* Decrease font size */
-    padding: 8px 15px; /* Decrease padding to make the buttons smaller */
-    border-radius: 20px; /* Rounded corners */
-    background-color: transparent; /* Remove background color */
-    transition: color 0.3s; /* Add transition for smooth color change */
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: color 0.3s;
 }
 
-/* Hover effect */
+
 .menu a:hover {
-    background-color: #d6418c; /* Change text color to yellow on hover */
+    background-color: #d6418c;
 }
 
 .profile-container {
-    position: relative; /* Position relative for absolute positioning */
+    position: relative;
     background-color: white;
     padding: 20px;
     margin: 20px auto;
     width: 80%;
-    height: 550px; /* Adjust the height to 550px */
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    height: 550px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .profile-heading {
-    background-color: #8a2be2; /* Purple color */
-    color: white; /* Text color */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
-    font-size: 24px; /* Font size */
-    font-weight: bold; /* Font weight */
-    padding: 10px 20px; /* Padding */
-    position: absolute; /* Position absolute for positioning within the container */
-    top: 0; /* Align to the top */
-    left: 0; /* Align to the left */
-    width: 100%; /* Make the heading span the entire width of its container */
-    text-align: center; /* Center align the text */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    background-color: #8a2be2;
+    color: white;
+    font-family: 'Love Ya Like A Sister', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .action-buttons {
-    background-color: #999; /* Light grey color */
-    padding: 20px; /* Padding for buttons */
-    position: absolute; /* Position absolute for positioning within the container */
-    top: 61px; /* Start slightly below the purple heading */
-    left: 0; /* Align to the left */
-    bottom: 0; /* Align to the bottom */
-    width: 20%; /* Width of the action buttons container */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    background-color: #999;
+    padding: 20px;
+    position: absolute;
+    top: 61px;
+    left: 0;
+    bottom: 0;
+    width: 20%;
+    box-sizing: border-box;
 }
 
 .action-buttons button {
     display: block;
-    width: calc(100% - 20px); /* Span the width of the action buttons box minus 20px padding on either end */
-    margin: 5px 10px; /* Add margin on top and bottom, and 10px on left and right */
+    width: calc(100% - 20px);
+    margin: 5px 10px;
     padding: 10px;
-    border: 1px solid black; /* Black border */
+    border: 1px solid black;
     border-radius: 5px;
-    background-color: #999; /* Medium grey background */
-    color: black; /* Black text color */
+    background-color: #999;
+    color: black;
     font-size: 16px;
     cursor: pointer;
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    box-sizing: border-box;
 }
 
 .action-buttons button:hover {
-    background-color: #777; /* Darker grey background on hover */
+    background-color: #777;
 }
 
 .profile-picture {
@@ -100,82 +100,82 @@ html, body {
     border: 2px solid red;
     border-radius: 50%;
     margin-bottom: 10px;
-    overflow: hidden; /* Hide overflow to keep the circular shape */
+    overflow: hidden;
 }
 
 .profile-picture img {
-    width: 100%; /* Ensure the image fills the container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 50%; /* Ensure the image stays circular */
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
 
 .profile-name{
-    margin-top: 10px; /* Add margin between profile name and age */
-    font-size: 16px; /* Adjust font size */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: 'Love Ya Like A Sister', sans-serif;
     right: 300px;
 }
 
 .profile-age{
-    margin-top: 10px; /* Add margin between profile name and age */
-    font-size: 16px; /* Adjust font size */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Love Ya Like A Sister font */
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: 'Love Ya Like A Sister', sans-serif;
 }
 
 .profile-bio {
-    width: 300px; /* Adjust size as needed */
-    height: 200px; /* Fixed height */
-    padding: 10px; /* Add padding */
-    background-color: #f5f5f5; /* Light grey background */
-    border: 2px solid rgba(0, 0, 0, 0); /* Transparent border */
-    border-radius: 5px; /* Rounded corners */
-    position: absolute; /* Position absolute for positioning within the container */
-    top: 350px; /* Adjust vertically below the profile age */
-    right: 600px; /* Adjust horizontally */
-    font-size: 16px; /* Adjust font size */
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
-    overflow: auto; /* Add scrollbars if content exceeds the fixed height */
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    position: absolute;
+    top: 350px;
+    right: 600px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    overflow: auto;
 }
 
 .hobbies-heading {
-    position: absolute; /* Position absolute for positioning within the profile-container */
-    top: 200px; /* Adjust vertically */
-    left: 935px; /* Adjust horizontally */
-    font-size: 20px; /* Adjust font size */
-    font-family: 'Love Ya Like A Sister', sans-serif; /* Use Roboto font */
+    position: absolute;
+    top: 200px;
+    left: 935px;
+    font-size: 20px;
+    font-family: 'Love Ya Like A Sister', sans-serif;
 }
 
 .hobbies {
     position: absolute;
-    top: 250px; /* Adjust vertically */
-    left: 910px;; /* Adjust horizontally */
+    top: 250px;
+    left: 910px;
 }
 
 .hobbies input[type="text"] {
     display: block;
-    width: 300px; /* Adjust width as needed */
+    width: 300px;
     padding: 10px;
-    margin-top: 10px; /* Add spacing between text boxes */
-    margin-left: 0; /* Adjust spacing from the left */
-    border: 2px solid #ccc; /* Add border */
-    border-radius: 5px; /* Add border radius */
-    font-size: 16px; /* Adjust font size */
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    margin-top: 10px;
+    margin-left: 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 .profile-squares {
     position: absolute;
-    top: 245px; /* Adjust vertically */
-    right: 380px; /* Adjust horizontally */
+    top: 245px;
+    right: 380px;
 }
 
 .square {
-    width: 150px; /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
+    width: 150px;
+    height: 150px;
     background-color: white;
     border: 2px solid red;
-    margin-bottom: 20px; /* Add spacing between squares */
+    margin-bottom: 20px;
 }
 
 .profile-info {
@@ -185,16 +185,16 @@ html, body {
     text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Align items horizontally at the center */
+    align-items: center;
 }
 
 .profile-details {
     margin-bottom: 5px;
-    text-align: center; /* Center align profile details */
+    text-align: center;
 }
 
 .profile-location {
-    margin-top: auto; /* Push the city to the bottom */
+    margin-top: auto;
 }
 
 .profile-name,

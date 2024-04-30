@@ -24,7 +24,7 @@ html, body {
     font-weight: bold;
     color: black;
     font-family: 'Love Ya Like A Sister', cursive;
-    margin-left: 200px; /* Adjust the value as needed */
+    margin-left: 200px;
 }
 .menu {
     margin-left: auto;
@@ -48,17 +48,17 @@ html, body {
 
 .container {
     display: flex;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
-    height: 100vh; /* Full viewport height */
-    margin-top: -50px; /* Adjust the top margin to move the content up */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: -50px;
 }
 
 .profile-section {
-    background-color: #fbb3b3; /* Pink background color */
+    background-color: #fbb3b3;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -68,16 +68,16 @@ html, body {
 }
 
 .profile-picture {
-    width: 150px; /* Adjust the width as needed */
-    height: 150px; /* Adjust the height as needed */
+    width: 150px;
+    height: 150px;
     margin-right: 20px;
     padding: 20px;
-    background-color: white; /* White background for the profile picture box */
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    overflow: hidden; /* Hide overflowing content */
+    overflow: hidden;
 }
 
 @font-face {
@@ -113,20 +113,20 @@ html, body {
 }
 
 .hobbies-group-one {
-    padding-right: 20px; /* Adding padding to the right */
+    padding-right: 20px;
 }
 
 .hobbies-group-two {
-    padding-right: 20px; /* Adding padding to the right */
+    padding-right: 20px;
 }
 
 .age-group {
-    margin-top: 0; /* Reset margin for age group */
+    margin-top: 0;
 }
 
 .input-group {
     margin-bottom: 20px;
-    padding-right: 20px;  /* Add padding to the right */
+    padding-right: 20px;
 }
 
 .input-group label {
@@ -174,7 +174,7 @@ html, body {
     margin-bottom: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    /* Adjusting the height to make them smaller */
+
     height: 100px;
     margin-bottom: 43px;
 }
@@ -186,7 +186,7 @@ html, body {
     object-fit: cover;
 }
 
-/* Clearfix to ensure proper wrapping */
+
 .profile-section::after {
     content: "";
     display: table;

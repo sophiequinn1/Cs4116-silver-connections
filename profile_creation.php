@@ -12,17 +12,17 @@ try {
 
     $userID = $_SESSION['UserId'] ?? null;
 
-    // Initialize age
+
     $age = '';
 
-    // Fetch date_of_birth from users table
+
     $stmt = $pdo->prepare("SELECT date_of_birth FROM users WHERE id = ?");
     $stmt->execute([$userID]);
 
     $date_of_birth = $stmt->fetchColumn();
 
     if ($date_of_birth !== false) {
-        // Calculate age based on date of birth
+
         $birth_date = new DateTime($date_of_birth);
         $current_date = new DateTime();
         $age = $current_date->diff($birth_date)->y;
@@ -94,7 +94,7 @@ try {
                 <div class="input-group">
                     <label for="country">Country:</label>
                     <select id="country" name="country">
-                        <!-- Your PHP code to set the selected country -->
+
                     </select>
                 </div>
                 <div class="input-group">
@@ -156,7 +156,7 @@ try {
     </form>
 </div>
 <script>
-    // Populate the country dropdown
+
     const countries = [
         "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
         "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
@@ -179,10 +179,10 @@ try {
         "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
     ];
 
-    // Get the select element
+
     const countrySelect = document.getElementById('country');
 
-    // Populate the dropdown with countries
+
     countries.forEach(country => {
         const option = document.createElement('option');
         option.value = country;
@@ -209,7 +209,7 @@ try {
                 img.style.display = 'block';
                 img.style.width = '100%';
                 img.style.height = '100%';
-                img.style.objectFit = 'cover'; // Ensures the image covers the entire pic box
+                img.style.objectFit = 'cover';
                 label.style.display = 'none';
             };
 

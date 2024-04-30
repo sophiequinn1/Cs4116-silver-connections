@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="cs4116-silver-connections-fionn" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="cs4116-silver-connections-fionn">
+        <serverdata>
+          <mappings>
+            <mapping deploy="C:/xampp/htdocs/cs4116-silver-connections-fionn" local="$PROJECT_DIR$" web="/http://localhost/cs4116-silver-connections-fionn" />
+            <mapping local="" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

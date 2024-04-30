@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silver Connections</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         @font-face {
             font-family: 'Love Ya Like A Sister';
-            src: url('LoveYaLikeASister-myEa.ttf') format('truetype'); /* Path to LoveYaLikeASister-myEa.ttf */
-            /* You can also include another format (e.g., woff2) if available */
+            src: url('LoveYaLikeASister-myEa.ttf') format('truetype');
+
         }
     </style>
 </head>

@@ -1,16 +1,8 @@
-/* styles.css */
-
-/* Reset default margin and padding for the entire page */
 html, body {
     margin: 0;
     padding: 0;
 }
 
-/* styles.css */
-
-/* styles.css */
-
-/* Banner */
 .banner {
     background-color: #ffb4b4; /* Light pink */
     padding: 20px; /* Decrease padding to make the banner smaller */
@@ -33,7 +25,6 @@ html, body {
     margin-top: -30px; /* Move the image upwards */
 }
 
-/* Login container */
 .login-container {
     text-align: center; /* Center the content horizontally */
     margin-top: 70px; /* Add more space from the top */
