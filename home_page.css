@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Example font family */
+    background-image: linear-gradient(to bottom, #ffffff, #ffb4b4); /* Gradient background */
+    min-height: 100vh; /* Minimum height to cover the entire viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Span the width of the screen */
+    height: 80px; /* Increase the height of the banner */
+    background-color: #ffb4b4;
+    display: flex;
+    justify-content: space-between; /* Position logo containers at the ends */
+    align-items: center;
+    padding: 0 20px; /* Add padding for spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow */
+}
+
+/* Logo container styles */
+.logo-container {
+    width: 50px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust rightmost logo position */
+.banner .logo-container:last-child {
+    margin-left: 20px; /* Add margin to push it slightly left */
+}
+
+/* Center the content box */
+.center-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Limit box width for responsiveness */
+    z-index: 1; /* Ensure the box stays above the background */
+}
+
+.center-box img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add space below */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+.center-box p {
+    font-size: 18px;
+    line-height: 1.6; /* Improved readability with increased line height */
+    color: #555; /* Slightly darker text color */
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between; /* Space evenly between images */
+    margin-top: 40px; /* Add margin above the image container */
+}
+
+.image-container img {
+    width: 30%; /* Adjust width of each image */
+    border-radius: 8px; /* Rounded corners for each image */
+}
+
+.continue-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 20px; /* Add more space on the left */
+}
+
+/* Hover effect */
+.continue-button:hover {
+    background-color: #45a049;
+}
