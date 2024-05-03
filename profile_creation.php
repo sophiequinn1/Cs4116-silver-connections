@@ -8,7 +8,7 @@ $password_db = "cs4116project";
 $dbname = "if0_36147664_silver_connections";
 
 try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username_db, $password_db);
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username_db, $password_db); //updated variable names correctly
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $userID = $_SESSION['UserId'] ?? null;
@@ -59,9 +59,9 @@ try {
     <div class="create-profile-text">
         CREATE A PROFILE
     </div>
-  </div>
+</div>
 <div class="container">
-    <form action="profile_creation_process.php" method="post" enctype="multipart/form-data">
+    <form action="success.php" method="post" enctype="multipart/form-data">
         <div class="profile-section">
             <div class="pic-boxes">
                 <div class="pic-box-1">
