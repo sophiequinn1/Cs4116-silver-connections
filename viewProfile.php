@@ -254,6 +254,8 @@ else:
 
     <?php endif; ?>
 </div>
+<?php endif;?>
+<?php endif;?>
 <div id="profilesDiv" class="tabcontent" style="margin-left:20px">
     <p style="font-size:20px; text-align: left; margin-top:30px;">Bio:</p>
     <table class="table table-bordered table-striped table-hover" width="50%">
@@ -283,8 +285,7 @@ else:
 
     </table>
 </div>
-<?php endif;?>
-<?php endif;?>
+
 
 </body>
 </html>

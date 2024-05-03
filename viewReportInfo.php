@@ -32,12 +32,14 @@ if ($result->num_rows > 0) {
 <div>
     <div id="profilesDiv" class="tabcontent" style="margin-left:20px";>
         <p style="font-size:20px; text-align: left; margin-top:30px;">User Info:</p>
-        <table width="60%">
+        <table class="table table-bordered table-striped table-hover" width="50%">
+            <thead style="background-color: #ffb4b4;">
             <tr>
                 <th>Name</th>
                 <th>Email</th>
                 <th>View Profile</th>
-            <tr>
+            </tr>
+        </thead>
 
         <?php
         $sql = "SELECT Profiles.*, users.* 
@@ -53,7 +55,7 @@ if ($result->num_rows > 0) {
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 if ($row["id"] != $_SESSION["UserId"]) {
-                    echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["email"] . "</td><td><br><a href='viewProfile.php?UserId=" . $row['id'] . "'> View Profile" . "</a></td></tr>";
+                    echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["email"] . "</td><td><br><a class='btn btn-info' href='viewProfile.php?UserId=" . $row['id'] . "'> View Profile" . "</a></td></tr>";
                 }
             }
         }
