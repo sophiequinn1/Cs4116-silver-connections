@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else if(isset($_POST['report'])) {
         $stmt = $db->prepare("INSERT INTO reports (userId1, userId2, reportDateTime, reportReason) VALUES (?, ?, NOW(), 'reported')");
         echo "<meta http-equiv='refresh' content='0'>'";
-        $stmt->bind_param("ii", $userId, $userId2);
+        $stmt->bind_param("ii", $userId2, $userId);
         $stmt->execute();
         $stmt->close();
     }
@@ -199,12 +199,12 @@ else:
 ?>
 
 <?php if (!$ownProfile):?>
-<div class="button-container">
+<div class="button-container container">
     <form method="post" action="">
         <input type="hidden" name="UserId" value="<?php echo $userId; ?>">
         <input type="hidden" name="UserId2" value="<?php echo $userId2; ?>">
         <?php if($isAdmin == 0): ?>
-            <button type="post" name="like" class="btn-success button">
+            <button type="post" name="like" class="btn btn-success">
         <?php
             if($alreadyLiked) {
                 echo "Unlike";
@@ -218,11 +218,12 @@ else:
     <?php if ($isAdmin == 1): ?>
         <form method="post" action="">
             <input type="hidden" name="deleteAccount" value="deleteAccount">
-            <button type="submit" class="btn-danger button">Delete User</button>
+            <button type="submit" class="btn btn-danger button">Delete User</button>
         </form>
         <form method="post" action="">
             <input type="hidden" name="ban" value="ban">
-            <button type="submit" class="btn-danger button"><?php
+            <button type="submit" class="btn btn-danger button justify-content-end">
+                <?php
                 if($isBanned) {
                     echo "Unban";
                 }
@@ -235,7 +236,7 @@ else:
     <?php else: ?>
         <form method="post" action="">
             <input type="hidden" name="block" value="block">
-            <button type="submit" class="btn-danger button">
+            <button type="submit" class="btn btn-danger button">
                 <?php
                 if($isBlocker) {
                 echo "Unblock";
@@ -248,39 +249,41 @@ else:
         </form>
         <form method="post" action="">
             <input type="hidden" name="report" value="report">
-            <button type="submit" class="btn-danger button">Report</button>
+            <button type="submit" class="btn btn-danger button">Report</button>
         </form>
 
     <?php endif; ?>
 </div>
-<?php endif;?>
 <div id="profilesDiv" class="tabcontent" style="margin-left:20px">
     <p style="font-size:20px; text-align: left; margin-top:30px;">Bio:</p>
-    <table width="60%">
+    <table class="table table-bordered table-striped table-hover" width="50%">
+        <thead style="background-color: #ffb4b4;">
         <tr>
             <th>Name</th>
             <th>Interests</th>
             <th>Gender</th>
             <th>Age</th>
-        <tr>
+        </tr>
+        </thead>
 
-        <?php
+            <?php
 
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
                     if ($row["Gender"] == 1)
                         $gender = "Male";
                     else{
                         $gender = "Female";
                     }
-                echo "<tr><td><br>" . $row["username"].  "</td><td><br>" . $row["Interests"]. "</td><td><br>" . $gender. "</td><td><br>" . $row["Age"] . "</a></td></tr>" . $row["Bio"]. " ". "</a></td></tr>";
+                    echo "<tr><td><br>" . $row["username"].  "</td><td><br>" . $row["Interests"]. "</td><td><br>" . $gender. "</td><td><br>" . $row["Age"] . "</a></td></tr>" . $row["Bio"]. " ". "</a></td></tr>";
+                }
+                echo "</table>";
             }
-            echo "</table>";
-        }
-        ?>
+            ?>
 
     </table>
 </div>
+<?php endif;?>
 <?php endif;?>
 
 </body>

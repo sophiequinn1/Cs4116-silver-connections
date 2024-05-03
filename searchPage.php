@@ -21,23 +21,25 @@ if ($db->connect_error) {
 <body>
 
 <div>
-    <div>
-        <form action="" method="post">
-            <input type="text" name="searchName" class="input-group" placeholder="Name...">
-            <input type="text" name="searchInterest" class="input-group" placeholder="Interest...">
-            <input type="text" name="searchAge" class="input-group" placeholder="Age...">
-            <input type="submit" value="Search" onclick="openTable(event, 'profilesDiv')">
+    <div class="container" style="width: 20%;">
+        <form action="" method="post" class="mt-4">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" name="searchName" class="input-group">
+            </div>
+            <div class="form-group">
+                <label>Interest:</label>
+                <input type="text" name="searchInterest" class="input-group">
+            </div>
+            <div class="form-group">
+                <label>Age:</label>
+                <input type="text" name="searchAge" class="input-group">
+            </div>
+            <div class="text-center">
+                <input type="submit" value="Search" class="btn btn-primary">
+            </div>
         </form>
     </div>
-
-    <div id="profilesDiv" class="tabcontent" style="margin-left:20px";>
-        <p style="font-size:20px; text-align: left; margin-top:30px;">Oldies:</p>
-        <table width="60%">
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>View Profile</th>
-            <tr>
 
         <?php
 
@@ -56,10 +58,27 @@ if ($db->connect_error) {
                 $stmt->bind_param("ssi", $nameValue, $interestValue, $ageValue);
                 $stmt->execute();
                 $result = $stmt->get_result();
+
                 if ($result->num_rows > 0) {
+        ?>
+    <div id="profilesDiv" class="tabcontent container" style="width: 50%;">
+        <p style="font-size:20px; text-align: left; margin-top:30px;">Oldies:</p>
+        <table class="table table-bordered table-rounded">
+            <thead style="background-color: #ffb4b4;">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>View Profile</th>
+            </tr>
+            </thead>
+                <?php
                     while($row = $result->fetch_assoc()) {
                         if ($row["id"] != $_SESSION["UserId"]) {
-                            echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["email"] . "</td><td><br><a href='viewProfile.php?UserId=" . $row['id'] . "'> View Profile" . "</a></td></tr>";
+                            echo "<tr>";
+                            echo "<td>" . $row["username"] . "</td>";
+                            echo "<td>" . $row["email"] . "</td>";
+                            echo "<td><a href='viewProfile.php?UserId=" . $row['id'] . "' class='btn btn-info'>View Profile</a></td>";
+                            echo "</tr>";
                         }
                     }
                 }

@@ -23,14 +23,15 @@ if ($db->connect_error) {
 <div>
     <div id="profilesDiv" class="tabcontent" style="margin-left:20px";>
         <p style="font-size:20px; text-align: left; margin-top:30px;">Reports:</p>
-        <table width="60%">
+        <table class="table table-bordered table-striped table-hover" width="50%">
+            <thead style="background-color: #ffb4b4;">
             <tr>
                 <th>Reported</th>
                 <th>Report Reason</th>
                 <th>Report Time</th>
                 <th>View Report</th>
-            <tr>
-
+            </tr>
+            </thead>
                 <?php
                 $sql = "SELECT *
                     FROM reports
@@ -41,7 +42,7 @@ if ($db->connect_error) {
 
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["reportReason"] . "</td><td><br>" . $row['reportDateTime'] . "</td><td><br><a href='viewReportInfo.php?ReportId=" . $row['reportId'] . "'> View Report" . "</a></td></tr>";
+                            echo "<tr><td><br>" . $row["username"] . "</td><td><br>" . $row["reportReason"] . "</td><td><br>" . $row['reportDateTime'] . "</td><td><br><a class='btn btn-info' href='viewReportInfo.php?ReportId=" . $row['reportId'] . "'> View Report" . "</a></td></tr>";
                         }
                     }
                     else {
